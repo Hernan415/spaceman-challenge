@@ -74,7 +74,7 @@ def spaceman(secret_word):
     print("Hello player, your secret word has " + str(len(secret_word)) + " letters and you have " + str(len(secret_word)) + " attempts to complete this game.")
     #TODO: Ask the player to guess one letter per round and check that it is only one letter
     while attempts <= len(secret_word):
-        guess = input("Please enter a single letter: ")
+        guess = raw_input("Please enter a single letter: ")
         if len(guess) > 1:
             print("Please only choose one letter and not more than one, please try again.")
         #TODO: Check if the guessed letter is in the secret or not and give the player feedback
