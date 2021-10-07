@@ -75,7 +75,10 @@ def spaceman(secret_word):
         if len(guess) > 1:
             print("Please only choose one letter and not more than one, please try again.")
     #TODO: Check if the guessed letter is in the secret or not and give the player feedback
-
+    if guess is in secret_word:
+        print("You are correct please continue")
+    else:
+        attempts = attempts +1
     #TODO: show the guessed word so far
 
     #TODO: check if the game has been won or lost
