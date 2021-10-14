@@ -45,7 +45,7 @@ def get_guessed_word(secret_word, letters_guessed):
         secret_word.replace(" " , "_")
         if guess in secret_word:
             print(secret_word.replace('_', guess))
-    pass
+    return get_guessed_word
 
 
 def is_guess_in_word(guess, secret_word):
@@ -61,6 +61,8 @@ def is_guess_in_word(guess, secret_word):
     return guess in secret_word
 
 
+Guesses = []
+
 
 def spaceman(secret_word):
     '''
@@ -74,19 +76,20 @@ def spaceman(secret_word):
     print("Hello player, your secret word has " + str(len(secret_word)) + " letters and you have " + str(len(secret_word)) + " attempts to complete this game.")
     #TODO: Ask the player to guess one letter per round and check that it is only one letter
     while attempts <= len(secret_word):
-        guess = raw_input("Please enter a single letter: ")
+        guess = input("Please enter a single letter: ")
         if len(guess) > 1:
             print("Please only choose one letter and not more than one, please try again.")
         #TODO: Check if the guessed letter is in the secret or not and give the player feedback
         if is_guess_in_word(guess, secret_word):
-            print("You are correct please continue")
+            print("You are correct please continue " + guess)
             get_guessed_word
         else:
             attempts = attempts - 1
             print("sorry you are incorrect you have " + str(attempts) + " attempts left.")
             get_guessed_word
     #TODO: show the guessed word so far
-
+    if guess in secret_word:
+        print(guess)
     #TODO: check if the game has been won or lost
     if attempts > len(secret_word):
         print("sorry you have lost the game")
